@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express();
 const cors = require('cors');
-const foodController = require("./controller/food.controller")
+const filesUploadController = require("./controller/filesUpload.controller")
+const userController = require("./controller/user.controller")
 
 app.use(express.json())
 app.use(cors());
@@ -12,7 +13,8 @@ app.use(function(req, res, next) {
     next();
   });
 
-app.use("/food", foodController)
+app.use("/files", filesUploadController)
+app.use("/users", userController)
 
 module.exports = {
     app
